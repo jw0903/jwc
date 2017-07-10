@@ -277,5 +277,7 @@ export default {
     text-align: center;
     line-height: 27px;
 }
-
+.condown .right ul li:hover{
+    background-color: #e8e8e8;
+}
 </style>

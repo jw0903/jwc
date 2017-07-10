@@ -8,7 +8,7 @@
       <div class="nav w100p mc clear">
               <ul>
                   <router-link to='/'><li>首页</li></router-link>
-                  <router-link to='jigou'><li>机构设置</li></router-link>
+                  <router-link to='/jigou'><li>机构设置</li></router-link>
                   <router-link to='/major'><li>专业设置</li></router-link>
                   <router-link to='/guanli'><li>管理文件</li></router-link>
                   <router-link to='/banshi'><li>办事指南</li></router-link>
@@ -19,7 +19,7 @@
       <div class="content">
         <router-view></router-view>
       </div>
-      <div class="footer">
+      <div class="footer clear">
         <!-- <p>华南农业大学首页</p> -->
         <router-link to='/'>华南农业大学首页</router-link>
         <p>华南农业大学行政办公楼三楼 广州市天河区五山路483号 510642</p>
