@@ -42,7 +42,7 @@ export default {
 
 <style>
 html{color:#000;background:#fff;}
-body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,input,button,textarea,p,blockquote,th,td{margin:0;padding:0; font-family:"微软雅黑";}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,input,button,textarea,p,blockquote,th{margin:0;padding:0; font-family:"微软雅黑";}
 body{font:12px/1 Tahoma,Helvetica,Arial,"\5b8b\4f53",sans-serif;}
 img{border:none;}
 em,strong{font-style:normal;font-weight:normal;}
