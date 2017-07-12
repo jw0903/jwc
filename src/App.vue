@@ -7,20 +7,15 @@
       </div>
       <div class="nav w100p mc clear">
               <ul>
-                  <router-link to='/'><li>首页</li></router-link>
-                  <router-link to='/jigou'><li>机构设置</li></router-link>
-                  <router-link to='/major'><li>专业设置</li></router-link>
-                  <router-link to='/guanli'><li>管理文件</li></router-link>
-                  <router-link to='/banshi'><li>办事指南</li></router-link>
-                  <router-link to='/ziliao'><li>资料下载</li></router-link>
-                  <router-link to='/jiaowu'><li>教务处邮箱</li></router-link>
+                  <router-link v-for="item in nav" :to=item.src :key="item.index"><li>{{ item.title }}</li></router-link>
               </ul>
       </div>
       <div class="content">
-        <router-view></router-view>
+        <keep-alive>
+          <router-view></router-view>
+        </keep-alive>
       </div>
       <div class="footer clear">
-        <!-- <p>华南农业大学首页</p> -->
         <router-link to='/'>华南农业大学首页</router-link>
         <p>华南农业大学行政办公楼三楼 广州市天河区五山路483号 510642</p>
         <p>华南农业大学教务处 版权所有</p>
@@ -34,7 +29,37 @@ export default {
   data () {
     return {
       bg1: require('./img/bg1.jpg'),
-      bg2: require('./img/bg2.jpg')
+      bg2: require('./img/bg2.jpg'),
+      nav:[
+        {
+          title:'首页',
+          src:'/'
+        },
+        {
+          title:'机构设置',
+          src:'jigou'
+        },
+        {
+          title:'专业设置',
+          src:'/major'
+        },
+        {
+          title:'管理文件',
+          src:'/guanli'
+        },
+        {
+          title:'办事指南',
+          src:'/banshi'
+        },
+        {
+          title:'资料下载',
+          src:'/ziliao'
+        },
+        {
+          title:'教务处邮箱',
+          src:'/jiaowu'
+        }
+      ]
     }
   }
 }

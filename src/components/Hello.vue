@@ -31,16 +31,8 @@
                             <h3>教务公告</h3>
                             <a href="#">更多</a>
                         </div>
-                        <ul>   
-                            <li><a href="#">[考务科]</a> <a href="#">2016年第二学期考场快讯第1期末</a> <span>2017-07-05x</span></li>
-                            <li><a href="#">[考务科]</a> <a href="#">2016年第二学期考场快讯第1期末</a> <span>2017-07-05x</span></li>
-                            <li><a href="#">[考务科]</a> <a href="#">2016年第二学期考场快讯第1期末</a> <span>2017-07-05x</span></li>
-                            <li><a href="#">[考务科]</a> <a href="#">2016年第二学期考场快讯第1期末</a> <span>2017-07-05x</span></li>
-                            <li><a href="#">[考务科]</a> <a href="#">2016年第二学期考场快讯第1期末</a> <span>2017-07-05x</span></li>
-                            <li><a href="#">[考务科]</a> <a href="#">2016年第二学期考场快讯第1期末</a> <span>2017-07-05x</span></li>
-                            <li><a href="#">[考务科]</a> <a href="#">2016年第二学期考场快讯第1期末</a> <span>2017-07-05x</span></li>
-                            <li><a href="#">[考务科]</a> <a href="#">2016年第二学期考场快讯第1期末</a> <span>2017-07-05x</span></li>
-                            <li><a href="#">[考务科]</a> <a href="#">2016年第二学期考场快讯第1期末</a> <span>2017-07-05x</span></li>
+                        <ul>
+                            <li v-for="item in article"><a href="#">{{ item.type }}</a> <a href="#">{{ item.title }}</a> <span>{{ item.date }}</span></li>
                         </ul>
                     </div>
                     <div class="right fl">
@@ -49,19 +41,7 @@
                             <a href="#">更多</a>
                         </div>
                         <ul>
-                            <li class="fl"><a href="#">休学</a></li>
-                            <li class="fl"><a href="#">复学</a></li>
-                            <li class="fl"><a href="#">缓考</a></li>
-                            <li class="fl"><a href="#">重修</a></li>
-                            <li class="fl"><a href="#">转专业</a></li>
-                            <li class="fl"><a href="#">借用教室</a></li>
-                            <li class="fl"><a href="#">退读双学位</a></li>
-                            <li class="fl"><a href="#">英文成绩单</a></li>
-                            <li class="fl"><a href="#">成绩修改申请</a></li>
-                            <li class="fl"><a href="#">提前考试申请</a></li>
-                            <li class="fl"><a href="#">实习基地申报</a></li>
-                            <li class="fl"><a href="#">实习经费申请</a></li>
-                            
+                            <li class="fl" v-for="item in banshi"><a href="#">{{ item }}</a></li>
                         </ul>                        
                     </div>
                 </div>
@@ -76,17 +56,8 @@
                             <h3>教务新闻</h3>
                             <a href="#">更多</a>
                         </div>
-                        <ul>   
-                            <li><a href="#">校领导到学院检查审核评估准备工作</a> <span>2017-07-05x</span></li>
-                            <li><a href="#">校领导到学院检查审核评估准备工作</a> <span>2017-07-05x</span></li>
-                            <li><a href="#">校领导到学院检查审核评估准备工作</a> <span>2017-07-05x</span></li>
-                            <li><a href="#">校领导到学院检查审核评估准备工作</a> <span>2017-07-05x</span></li>
-                            <li><a href="#">校领导到学院检查审核评估准备工作</a> <span>2017-07-05x</span></li>
-                            <li><a href="#">校领导到学院检查审核评估准备工作</a> <span>2017-07-05x</span></li>
-                            <li><a href="#">校领导到学院检查审核评估准备工作</a> <span>2017-07-05x</span></li>
-                            <li><a href="#">校领导到学院检查审核评估准备工作</a> <span>2017-07-05x</span></li>
-                            <li><a href="#">校领导到学院检查审核评估准备工作</a> <span>2017-07-05x</span></li>
-                            <li><a href="#">校领导到学院检查审核评估准备工作</a> <span>2017-07-05x</span></li>
+                        <ul>
+                            <li v-for="item in jiaowu"><a href="#">{{ item.title }}</a><span>{{ item.date }}</span></li>
                         </ul>
                     </div>
                     <div class="right fl">
@@ -94,15 +65,7 @@
                             <h3>相关链接</h3>
                         </div>
                         <ul>
-                            <li><a href="#">教师教学发展中心</a></li>
-                            <li><a href="#">质量工程网</a></li>
-                            <li><a href="#">毕业论文(设计)系统</a></li>
-                            <li><a href="#">CET成绩证明与复核</a></li>
-                            <li><a href="#">教材选用</a></li>
-                            <li><a href="#">教学信息反馈网</a></li>
-                            <li><a href="#">网络教育资源</a></li>
-                            <li><a href="#">语言文字网</a></li>
-                        </ul>
+                            <li v-for="item in lianjie" :key="item.index"><a href="#">{{ item }}</a></li>                        </ul>
                     </div>
                 </div>
             </div>
@@ -114,8 +77,37 @@ export default {
   name: 'hello',
   data () {
     return {
-
+        article:[],
+        banshi:[],
+        jiaowu:[],
+        lianjie:[]
     }
+  },
+  created: function() {
+    this.$http.get('api/article')
+    .then((res) => {
+        this.article = res.data;
+    }, (err) => {
+        console.log(err);
+    });
+    this.$http.get('api/banshi')
+    .then((res) => {
+        this.banshi = res.data;
+    }, (err) => {
+        console.log(err);
+    });
+    this.$http.get('api/jiaowu')
+    .then((res) => {
+        this.jiaowu = res.data;
+    }, (err) => {
+        console.log(err);
+    });
+    this.$http.get('api/lianjie')
+    .then((res) => {
+        this.lianjie = res.data;
+    }, (err) => {
+        console.log(err);
+    })
   }
 }
 </script>
