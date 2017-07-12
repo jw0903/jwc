@@ -10,9 +10,11 @@ import Banshi from './components/banshi.vue'
 import Ziliao from './components/ziliao.vue'
 import Jiaowu from './components/jiaowu.vue'
 import Vuerouter from 'vue-router'
+import VueResource from 'vue-resource'
 Vue.config.productionTip = false
 
 Vue.use(Vuerouter)
+Vue.use(VueResource)
 let router = new Vuerouter({
     mode: 'history',
     routes: [
