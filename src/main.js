@@ -11,6 +11,7 @@ import Ziliao from './components/ziliao.vue'
 import Jiaowu from './components/jiaowu.vue'
 import Vuerouter from 'vue-router'
 import VueResource from 'vue-resource'
+import Detailpage from './components/detailpage'
 Vue.config.productionTip = false
 
 Vue.use(Vuerouter)
@@ -24,8 +25,51 @@ let router = new Vuerouter({
         },
         {
             path: '/jigou',
-            component: Jigou
+            component: Jigou,
+            redirect:'/jigou/jwc',
+            children: [
+                {
+                    path: 'jwc',
+                    component: Detailpage
+                }
+            //     {
+            //         path: 'zhk',
+            //         component: Detailzhk
+            //     },
+            //     {
+            //         path: 'jwk',
+            //         component: Detailjwk
+            //     },
+            //     {
+            //         path: 'xjk',
+            //         component: Detailxjk
+            //     },
+            //     {
+            //         path: 'kwk',
+            //         component: Detailkwk
+            //     },
+            //     {
+            //         path: 'jxz',
+            //         component: Detailjxz
+            //     },
+            //     {
+            //         path: 'sjk',
+            //         component: Detailsjk
+            //     },
+            //     {
+            //         path: 'jxy',
+            //         component: Detailjxy
+            //     },
+            //     {
+            //         path: 'jxj',
+            //         component: Detailjxj
+            //     }
+              ]
         },
+        // {
+        //     path: '/jigou/jwc',
+        //     component: Detailpage
+        // },
         {
             path: '/major',
             component: Major
