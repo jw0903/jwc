@@ -1,22 +1,12 @@
 <template>
     <div>
-        <div class="left fl">
-            <ul>
-                <li><a href="#">教务处领导</a></li>
-                <li><a href="#">综合科</a></li>
-                <li><a href="#">教务科</a></li>
-                <li><a href="#">学籍科</a></li>
-                <li><a href="#">考务科</a></li>
-                <li><a href="#">教学质量监控科</a></li>
-                <li><a href="#">实践教学科</a></li>
-                <li><a href="#">教学研究与评估中心</a></li>
-                <li><a href="#">教师教学发展中心</a></li>
-            </ul>
-        </div>
+        <router-view>
+        <left v-if="!show"></left>
+        </router-view>
         <div class="right fr">
             <input type="text" placeholder="全站搜索"/>
             <ul>
-                <li>教务处领导</li>
+                <li><router-link to="/jigou/jwc">教务处领导</router-link></li>
                 <li>综合科</li>
                 <li>教务科</li>
                 <li>学籍科</li>
@@ -31,8 +21,28 @@
 </template>
 
 <script>
+    var pattern = /jigou\//
+    import left from './left.vue'
     export  default {
-        
+        components:{
+            left
+        },
+        data () {
+            return {
+                ktype:[],
+                show:true
+            }
+        },
+        created () {
+            this.$http.get('/api/ktype')
+            .then((res) => {
+                this.ktype = res.data;
+            }, (err) => {
+                console.log(err);
+            })
+            this.show = pattern.test(window.location.pathname)
+            console.log(this.show);
+        }
     }
 </script>
 

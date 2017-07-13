@@ -25,42 +25,22 @@
 </template>
 
 <script>
+
 export default {
   data () {
     return {
       bg1: require('./img/bg1.jpg'),
       bg2: require('./img/bg2.jpg'),
-      nav:[
-        {
-          title:'首页',
-          src:'/'
-        },
-        {
-          title:'机构设置',
-          src:'jigou'
-        },
-        {
-          title:'专业设置',
-          src:'/major'
-        },
-        {
-          title:'管理文件',
-          src:'/guanli'
-        },
-        {
-          title:'办事指南',
-          src:'/banshi'
-        },
-        {
-          title:'资料下载',
-          src:'/ziliao'
-        },
-        {
-          title:'教务处邮箱',
-          src:'/jiaowu'
-        }
-      ]
+      nav:[]
     }
+  },
+  created () {
+    this.$http.get('/api/nav')
+    .then((res) => {
+      this.nav = res.data;
+    }, (err) => {
+      console.log(err);
+    })
   }
 }
 </script>
