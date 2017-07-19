@@ -28,19 +28,6 @@
         props: {
             JG: {}
         }
-        // data () {
-        //     return {
-        //         zhk:{}
-        //     }
-        // },
-        // created () {
-        //     this.$http.get('/api/JGzhk')
-        //     .then((res) => {
-        //         this.zhk = res.data;
-        //     },(err) => {
-        //         console.log(err);
-        //     })
-        // }
     }
 </script>
 
