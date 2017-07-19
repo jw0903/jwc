@@ -120,18 +120,18 @@ body{
     font-size: 15px;
     box-sizing: border-box;
 }
-.nav ul a:hover{
+.nav ul a:hover[class = "active"]{
     background-color:#065d35;
     cursor: pointer;
 }
-.nav ul a:first-child:hover{
+.nav ul a:first-child{
     border-top-left-radius: 8px;
     border-bottom-left-radius:8px;
 }
 .nav ul a:last-child{
     padding:0 45px;
 }
-.nav ul a:last-child:hover{
+.nav ul a:last-child{
     border-top-right-radius:8px;
     border-bottom-right-radius:8px;
 }

@@ -7,8 +7,8 @@
                             <h3>教务系统登陆入口</h3>
                             <a href="#">教师专用入口</a>
                         </div>
-                        <input type="text" placeholder="用户名"/>
-                        <input type="text" />
+                        <input type="text" placeholder="输入用户名" v-model="account"/>
+                        <input type="password" placeholder="输入密码" v-model="password"/>
                         <input type="text" placeholder="验证码" />
                         <span><a href="#">看不清换一张</a></span>
                         <div class="radio">
@@ -22,7 +22,7 @@
                             <label>访客</label>
                         </div>
                         <div class="btn">
-                            <input type="button" value="登录" />
+                            <input type="button" value="登录" @click="login"/>
                             <input type="button" value="重置" />
                         </div>
                     </div>
@@ -65,7 +65,8 @@
                             <h3>相关链接</h3>
                         </div>
                         <ul>
-                            <li v-for="item in lianjie" :key="item.index"><a href="#">{{ item }}</a></li>                        </ul>
+                            <li v-for="item in lianjie" :key="item.index"><a href="#">{{ item }}</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -77,6 +78,8 @@ export default {
   name: 'hello',
   data () {
     return {
+        password: '',
+        account: '',
         article:[],
         banshi:[],
         jiaowu:[],
@@ -108,6 +111,17 @@ export default {
     }, (err) => {
         console.log(err);
     })
+  },
+  methods: {
+    login () {
+        if(this.account == "") {
+            alert("账号不能为空");
+        } else if (this.password == "") {
+            alert("密码不能为空")
+        } else {
+            alert("login success");
+        }
+    }
   }
 }
 </script>
