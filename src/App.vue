@@ -7,13 +7,11 @@
       </div>
       <div class="nav w100p mc clear">
               <ul>
-                  <router-link v-for="item in nav" :to=item.src :key="item.index"><li>{{ item.title }}</li></router-link>
+                  <router-link v-for="item in nav" :to=item.src :key="item.index" active-class="active" exact><li>{{ item.title }}</li></router-link>
               </ul>
       </div>
       <div class="content">
-        <keep-alive>
           <router-view></router-view>
-        </keep-alive>
       </div>
       <div class="footer clear">
         <router-link to='/'>华南农业大学首页</router-link>
@@ -23,7 +21,6 @@
     </div>
   </div>
 </template>
-
 <script>
 
 export default {
@@ -41,6 +38,8 @@ export default {
     }, (err) => {
       console.log(err);
     })
+  },
+  methods: {
   }
 }
 </script>
@@ -80,7 +79,10 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,secti
 .w242{ width:242px;}
 .w736{ width:736px;}
 .w490{ width:490px;}
-
+.active{
+  background-color: #077ba1
+  
+}
 body{
     /*background-image: url(bg1.jpg);*/
     background-repeat: repeat-x;

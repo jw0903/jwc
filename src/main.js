@@ -11,7 +11,15 @@ import Ziliao from './components/ziliao.vue'
 import Jiaowu from './components/jiaowu.vue'
 import Vuerouter from 'vue-router'
 import VueResource from 'vue-resource'
-import Detailpage from './components/detailpage'
+import JGjwc from './components/article/JGjwc'
+import JGjwk from './components/article/JGjwk.vue'
+import JGjsj from './components/article/JGjsj.vue'
+import JGjxy from './components/article/JGjxy.vue'
+import JGjxz from './components/article/JGjxz.vue'
+import JGkwk from './components/article/JGkwk.vue'
+import JGsjk from './components/article/JGsjk.vue'
+import JGxjk from './components/article/JGxjk.vue'
+import JGzhk from './components/article/JGzhk.vue'
 Vue.config.productionTip = false
 
 Vue.use(Vuerouter)
@@ -21,55 +29,50 @@ let router = new Vuerouter({
     routes: [
         {
             path: '/',
-            component: Hello,
+            component: Hello
         },
         {
             path: '/jigou',
             component: Jigou,
-            redirect:'/jigou/jwc',
             children: [
                 {
                     path: 'jwc',
-                    component: Detailpage
+                    component: JGjwc
+                },
+                {
+                    path: 'zhk',
+                    component: JGzhk
+                },
+                {
+                    path: 'jwk',
+                    component: JGjwk
+                },
+                {
+                    path: 'xjk',
+                    component: JGxjk
+                },
+                {
+                    path: 'kwk',
+                    component: JGkwk
+                },
+                {
+                    path: 'jxz',
+                    component: JGjxz
+                },
+                {
+                    path: 'sjk',
+                    component: JGsjk
+                },
+                {
+                    path: 'jxy',
+                    component: JGjxy
+                },
+                {
+                    path: 'jsj',
+                    component: JGjsj
                 }
-            //     {
-            //         path: 'zhk',
-            //         component: Detailzhk
-            //     },
-            //     {
-            //         path: 'jwk',
-            //         component: Detailjwk
-            //     },
-            //     {
-            //         path: 'xjk',
-            //         component: Detailxjk
-            //     },
-            //     {
-            //         path: 'kwk',
-            //         component: Detailkwk
-            //     },
-            //     {
-            //         path: 'jxz',
-            //         component: Detailjxz
-            //     },
-            //     {
-            //         path: 'sjk',
-            //         component: Detailsjk
-            //     },
-            //     {
-            //         path: 'jxy',
-            //         component: Detailjxy
-            //     },
-            //     {
-            //         path: 'jxj',
-            //         component: Detailjxj
-            //     }
               ]
         },
-        // {
-        //     path: '/jigou/jwc',
-        //     component: Detailpage
-        // },
         {
             path: '/major',
             component: Major

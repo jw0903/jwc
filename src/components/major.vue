@@ -49,6 +49,7 @@
         width: 242px;
         height: 34px;
         border: 2px solid #ddd;
+        padding-left: 5px;
     }
     .right ul{
         margin-top: 10px;

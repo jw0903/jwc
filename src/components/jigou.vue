@@ -1,27 +1,26 @@
 <template>
     <div>
+        <left v-if="show" :isShow="show" @hidden="hidden"></left>
         <router-view>
-        <left v-if="!show"></left>
         </router-view>
         <div class="right fr">
             <input type="text" placeholder="全站搜索"/>
             <ul>
-                <li><router-link to="/jigou/jwc">教务处领导</router-link></li>
-                <li>综合科</li>
-                <li>教务科</li>
-                <li>学籍科</li>
-                <li>考务科</li>
-                <li>教学质量监控科</li>
-                <li>实践教学科</li>
-                <li>教学研究与评估中心</li>
-                <li>教师教学发展中心</li>
+                <li @click="hidden"><router-link to="/jigou/jwc" >教务处领导</router-link></li>
+                <li @click="hidden"><router-link to="/jigou/zhk">综合科</router-link></li>
+                <li @click="hidden"><router-link to="/jigou/jwk">教务科</router-link></li>
+                <li @click="hidden"><router-link to="/jigou/xjk">学籍科</router-link></li>
+                <li @click="hidden"><router-link to="/jigou/kwk">考务科</router-link></li>
+                <li @click="hidden"><router-link to="/jigou/jxz">教学质量监控科</router-link></li>
+                <li @click="hidden"><router-link to="/jigou/sjk">实践教学科</router-link></li>
+                <li @click="hidden"><router-link to="/jigou/jxy">教学研究与评估中心</router-link></li>
+                <li @click="hidden"><router-link to="/jigou/jsj">教师教学发展中心</router-link></li>
             </ul>
         </div>
     </div>
 </template>
 
 <script>
-    var pattern = /jigou\//
     import left from './left.vue'
     export  default {
         components:{
@@ -30,8 +29,10 @@
         data () {
             return {
                 ktype:[],
-                show:true
+                show: true,
             }
+        },
+        computed: {
         },
         created () {
             this.$http.get('/api/ktype')
@@ -39,9 +40,12 @@
                 this.ktype = res.data;
             }, (err) => {
                 console.log(err);
-            })
-            this.show = pattern.test(window.location.pathname)
-            console.log(this.show);
+            })  
+        },
+        methods: {
+            hidden () {
+              this.show = false;
+            }
         }
     }
 </script>
@@ -73,6 +77,7 @@
         width: 242px;
         height: 34px;
         border: 2px solid #ddd;
+        padding-left: 5px;
     }
     .right ul{
         margin-top: 10px;
