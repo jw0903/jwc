@@ -12,14 +12,14 @@
                         <input type="text" placeholder="验证码" />
                         <span><a href="#">看不清换一张</a></span>
                         <div class="radio">
-                            <input name="sel" type="radio"/>
-                            <label>部门</label>
-                            <input name="sel" type="radio"/>
-                            <label>教师</label>
-                            <input name="sel" type="radio"/>
-                            <label>学生</label>
-                            <input name="sel" type="radio"/>
-                            <label>访客</label>
+                            <input name="sel" id="sel1" type="radio"/>
+                            <label for="sel1">部门</label>
+                            <input name="sel" id="sel2" type="radio"/>
+                            <label for="sel2">教师</label>
+                            <input name="sel" id="sel3" type="radio"/>
+                            <label for="sel3">学生</label>
+                            <input name="sel" id="sel4" type="radio"/>
+                            <label for="sel4">访客</label>
                         </div>
                         <div class="btn">
                             <input type="button" value="登录" @click="login"/>
@@ -32,7 +32,11 @@
                             <a href="#">更多</a>
                         </div>
                         <ul>
-                            <li v-for="item in article"><a href="#">{{ item.type }}</a> <a href="#">{{ item.title }}</a> <span>{{ item.date }}</span></li>
+                            <li v-for="item in article">
+                                <a href="#">{{ item.type }}</a> 
+                                <a href="#">{{ item.title }}</a> 
+                                <span>{{ item.date }}</span>
+                            </li>
                         </ul>
                     </div>
                     <div class="right fl">
@@ -69,7 +73,7 @@
                         </ul>
                     </div>
                 </div>
-            </div>
+    </div>
   </div>
 </template>
 
@@ -232,20 +236,28 @@ export default {
 }
 
 .mid ul {
-    padding-top:18px;
+    /*padding-top:18px;*/
 }
 .mid ul li {
     font-size: 14px;
-    padding-left:14px;
-    margin-bottom:14px;
+    /*padding-left:14px;*/
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.mid ul li a:nth-child(1){
+    /*display: flex;*/
+    /*justify-content: space-around;*/
 }
 .mid ul li a:hover{
     text-decoration:underline;
 }
 .mid ul li span{
-    position: relative;
-    left: 90px;
     color:#737373;
+    display: flex;
+    flex:1;
+    justify-content: space-around;
 }
 
 .contop .right ul li{

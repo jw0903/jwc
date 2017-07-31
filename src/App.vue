@@ -111,12 +111,15 @@ body{
     background-color: #087945;
     border-radius: 8px;
 }
+.nav ul{
+  display: flex;
+}
 .nav ul a{
-    float: left;
-    line-height: 48px;
+    flex:1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 48px;
-    text-align: center;
-    padding:0 42px;
     font-size: 15px;
     box-sizing: border-box;
 }
@@ -127,9 +130,6 @@ body{
 .nav ul a:first-child{
     border-top-left-radius: 8px;
     border-bottom-left-radius:8px;
-}
-.nav ul a:last-child{
-    padding:0 45px;
 }
 .nav ul a:last-child{
     border-top-right-radius:8px;
