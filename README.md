@@ -171,6 +171,6 @@ export default {
 </script>
 ```
 
-  <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
   
   http://yunkus.com/vue-functional-module-time-shuttle-box/
