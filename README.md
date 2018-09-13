@@ -23,6 +23,7 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 
 
 ChangeBoxArea.vue
+```
 <template>
     <div class="panel panel-default">
       <div class="panel-heading clearfix">
@@ -92,9 +93,10 @@ ul {
   margin: 0;
 }
 </style>
-
+```
 
 ChangeBox.vue
+```
 <template>
  <div class="container">
    <div class="row">
@@ -167,7 +169,7 @@ export default {
   }
 };
 </script>
-
+```
 
   <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
   
